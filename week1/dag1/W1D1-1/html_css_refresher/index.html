@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="nl" >
+    <head>
+        <title>
+            HTML/CSS Refresher
+        </title>
+        <style>
+            *{
+                font-size: 1rem;
+                font-family: 'Calibri', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+                word-wrap: break-word;
+                color: #222;
+                user-select: none
+            }
+
+            body{
+                background-color: #fff;
+                text-align: left;
+                padding: 4rem
+            }
+            
+            .member_cards{
+                display: grid;
+                grid-template-columns: auto auto;
+                grid-column-gap: .75rem;
+                grid-row-gap: .75rem
+            }
+
+            .member_card{
+                border: 1px solid #ddd;
+                box-shadow: 0 1px 2px rgba(0,0,0,.2);
+                border-radius: .3rem;
+                min-width: 40%
+            }
+
+            .request{
+                display: grid;
+                grid-template-columns: auto auto;
+                grid-column-gap: 0;
+                grid-row-gap: 0;
+                list-style: none;
+                margin: 0px;
+                padding: .75rem 1rem;
+                border-top: 1px solid #ddd
+            }
+
+            .button{
+                padding: .45rem 0 .6rem 0;
+                text-align: center;
+                cursor: pointer;
+                background-color: #fff;
+                margin: 0;
+            }
+
+            .red {
+                border: 1px solid #d92f29;
+                color: #d92f29;
+                border-radius: 0px 3px 3px 0px
+            }
+
+            .green {
+                border: 1px solid #59bc46;
+                border-right: 0;
+                color: #59bc46;
+                border-radius: 3px 0px 0px 3px
+            }
+
+            .member_name{
+                font-weight: 700;
+                font-size: 1.4rem;
+                padding: .75rem 0 .25rem 1rem
+            }
+
+            .member_status{
+                color: #888;
+                padding: 0 0 0 1rem;
+                font-size: 1rem
+            }
+
+            .member_message{
+                color: #333;
+                padding: .75rem 1rem 1rem 1rem;
+                font-size: 1rem
+            }
+
+            .member_message span{
+                font-weight: 600;
+                font-size: inherit
+            }
+
+            .member_avatar img{
+                float: right;
+                width: 2.75rem;
+                height: 2.75rem;
+                max-width: 2.75rem;
+                max-height: 2.75rem;
+                margin: 1rem 1rem 0 0
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="member_cards">
+
+            <div class="member_card">
+                <div class="member_avatar">
+                    <img draggable="false" src="carla-snepvangers.jpg">
+                </div>
+                <div class="member_name">Carla Snepvangers</div>
+                <div class="member_status">Friends with Marijn</div>
+                <div class="member_message">Carla requested permission to view your contact details</div>
+                <div class="request">
+                    <button class="button green" name="choice" value="1">Approve</button>
+                    <button class="button red" name="choice" value="0">Decline</button>
+                </div>
+            </div>
+
+            <div class="member_card">
+                <div class="member_avatar">
+                    <img draggable="false" src="marijn-pijnenburg.jpg">
+                </div>
+                <div class="member_name">Marijn Pijnenberg</div>
+                <div class="member_status">New member</div>
+                <div class="member_message">Marijn wants to add you to the group <span>best friends</span></div>
+                <div class="request">
+                    <button class="button green" name="choice" value="1">Approve</button>
+                    <button class="button red" name="choice" value="0">Decline</button>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
