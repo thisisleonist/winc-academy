@@ -75,6 +75,8 @@ body {
   color: #333;
   padding: 0.75rem 1rem 1rem 1rem;
   font-size: 1rem;
+  word-spacing: 0px;
+  white-space: pre-line;
 }
 
 .member_message span {
