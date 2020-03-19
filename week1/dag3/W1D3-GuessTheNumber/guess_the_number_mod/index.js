@@ -32,6 +32,32 @@ const guessTheNumber = function(){
     return max;
 }
 
+// dezelfde functie als guessTheNumber() hierboven
+// while loop oogt schoner dan recursive functie
+
+// check op undefined of null kan eventueel weggelaten
+//   worden, als de call in runGame() met argument is
+
+// idee bij de while() loops bij user input is om de
+//   speler de kans te geven gegevens juist in te voeren
+//   zonder negatieve feedback te geven en bij meer dan
+//   drie pogingen zelf een standaardwaarde te gebruiken
+// dit geldt voor naam, laagst en hoogst gestal
+
+// ook bij het bewust verkeerd invoeren van de twee
+//   getallen draai ik de getallen zelf om, zodat het
+//   spel niet onderbroken hoeft te worden door de
+//   gebruiker lastig te vallen met de gegevens input
+
+// const guessTheNumber = function(asked){
+//     if(asked===undefined || asked===null) asked = 0;
+//     if(asked===maxAsks) return max;
+//     input = askUserInput('Enter a number between '+min+' and '+max+' to guess:',0);
+//     if(validNumber(input)) return parseInt(input);
+//     asked++;
+//     guessTheNumber(asked);
+// }
+
 const askLowNumber = function(){
     let asked = 0;
     while(asked!==maxAsks){
