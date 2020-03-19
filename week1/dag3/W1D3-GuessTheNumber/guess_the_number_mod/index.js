@@ -78,6 +78,7 @@ const guessesLeftMsg = function(maxGuesses, guessed){
 const runGame = function(guessed){
 
     if(!initGame){
+        //changeColors(true);
         userName = askUserName();
         alert('Hello '+userName+'. Let\'s play: Guess the number!');
         min = askLowNumber();
@@ -100,12 +101,14 @@ const runGame = function(guessed){
         if(verifyGuess(theNumber,randomNumber)){
             alert('Congratulations! You guessed right! The correct number is '+randomNumber+'.');
             alert('Goodbye '+userName+'. See you next time!');
+            initGame = false;
             return;
         }
 
         if(guessed===maxGuesses){
             alert('Sorry, your guess is incorrect '+userName+'. You have no more guesses!\n\nThe correct number is '+randomNumber+'. This game is over :(','');
             alert('Goodbye '+userName+'. See you next time!');
+            initGame = false;
             return;
         }
 
@@ -116,12 +119,39 @@ const runGame = function(guessed){
         }
 
         alert('Fair enough! Goodbye '+userName+'. See you next time!');
+        initGame = false;
         return;
 
     }
 
 }
 
-runGame();
+document.getElementById('runGame').onclick = function(){
+    runGame();
+};
+
+/*
+const changeColor = function(theNumber,theAnswer){
+    if(theNumber < 1 || theNumber > 10){
+        return false;
+    }
+    let theElem = document.getElementById('n'+theNumber);
+    if(theAnswer===true){
+        theElem.className.baseVal = 'show';
+    }else if(theAnswer===false){
+        theElem.className.baseVal = 'hide';
+    }else{
+        theElem.className.baseVal = '';
+    }
+    return true;
+}
+
+const changeColors = function(theAnswer){
+    for (let theNumber = 1; theNumber <= 10; theNumber++) {
+        changeColor(theNumber,theAnswer);
+    }
+    return true;
+}
+*/
 
 // EOF
