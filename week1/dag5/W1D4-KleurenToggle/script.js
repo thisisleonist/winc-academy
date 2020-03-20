@@ -1,13 +1,14 @@
 /**
  * 
- *  Gedachte achter appColors als object is om het kleurenmenu
- *  dynamisch te maken en de HTML voor de keuzes te genereren
- *  vanuit het script
+ *  Thought behind appColors as an object is to make the
+ *  color menu dynamic and generate the HTML for the choices
+ *  using JavaScript. keyCode works for the first 9 colors.
  * 
  */
 
 const appBody = document.body;
 const appMenuToggler = document.getElementById('toggler');
+const appHamburgerImage = document.querySelector('#toggler img');
 const appMenuColors = document.getElementById('colors');
 const appMenuChoices = document.getElementById('choices');
 const appBodyMessage = document.getElementById('message');
@@ -32,8 +33,28 @@ const appColors = {
     color5: {
         label: 'Green',
         value: '#3DCC3D'
-    }
-};
+    },
+
+    // Uncomment for additional colors
+    
+    // color6: {
+    //     label: 'Yellow',
+    //     value: '#FFD500'
+    // },
+    // color7: {
+    //     label: 'Aqua',
+    //     value: '#29CCCC'
+    // },
+    // color8: {
+    //     label: 'Blue',
+    //     value: '#295FCC'
+    // },
+    // color9: {
+    //     label: 'Magenta',
+    //     value: '#9C3DCC'
+    // }
+
+}
 
 // Object.keys example from source #1
 const colorCount = Object.keys(appColors).length;
@@ -46,27 +67,34 @@ const appBuildColorMenu = function(){
     }
 };
 
-const appToggleMenu = function(action){
+const appInitBkgndTransition = function(){
+    if(!appBody.classList.contains('transition')) appBody.classList.add('transition');
+}
 
+const appToggleColorMenu = function(action){
     if(action){
         appMenuColors.classList.remove('hide');
+        appHamburgerImage.classList.add('rotate-right');
+        
         appMenuColors.classList.add('show');
     }else{
-        if(whereIsThePointer()===false){
-            appMenuColors.classList.add('hide');
-            appMenuColors.classList.remove('show');
-        }
+        appMenuColors.classList.add('hide');
+        appHamburgerImage.classList.remove('rotate-right');
+        appMenuColors.classList.remove('show');
     }
 };
 
-
-// appMenuToggler.addEventListener('mouseleave',function(){
-//     appToggleMenu(false);
-// });
-
-const appBindToggler = function(){
+const appSetTogglerEvents = function(){
     appMenuToggler.addEventListener('mouseenter',function(){
-        appToggleMenu(true);
+        appToggleColorMenu(true);
+        // prevents *flash* from white to black after page load
+        appInitBkgndTransition();
+    });
+    appMenuToggler.addEventListener('mouseleave',function(){
+        appToggleColorMenu(false);
+    });
+    appMenuColors.addEventListener('mouseenter',function(){
+        appToggleColorMenu(true);
     });
 };
 
@@ -83,7 +111,7 @@ const appSelectRadioButton = function(button){
     document.getElementById(button).checked = true;
 };
 
-const appBindColors = function(){
+const appSetColorChoiceEvents = function(){
     for (let index = 1; index <= colorCount; index++) {
         color = appColors['color'+index];
         let value = color.value;
@@ -92,21 +120,21 @@ const appBindColors = function(){
             appChangeBackgroundColor(value);
             appSelectRadioButton('color'+index+'btn');
             appChangeBodyMessage(label, value);
-            appToggleMenu(false);
+            appToggleColorMenu(false);
         });
     };
 };
 
-const appBindMenuClose = function(){
+const appBindCloseMenuFromBody = function(){
     appBody.addEventListener('click',function(){
-        appToggleMenu(false);
+        appToggleColorMenu(false);
     });
 };
 
-// keyCode range 0 t/m 9 example from source #4
+// keyCode range 1 t/m 9 example from source #4
 const appBindKeyPress = function(){
     appBody.addEventListener('keypress', function(pressed){
-        if( pressed.keyCode >= 48 &&
+        if( pressed.keyCode >= 49 &&
             pressed.keyCode <= 57
         ){
             appChangeBackgroundColorByKeypress(pressed.key);
@@ -116,28 +144,24 @@ const appBindKeyPress = function(){
 
 const appChangeBackgroundColorByKeypress = function(key){
     color = appColors['color'+key];
-    let value = color.value;
-    let label = color.label;
-
-    appChangeBackgroundColor(value);
+    value = color.value;
+    label = color.label;
+    // prevents *flash* from white to black after page load
+    appInitBkgndTransition();
+    appChangeBackgroundColor(color.value);
     appSelectRadioButton('color'+key+'btn');
-    appChangeBodyMessage(label, value);
+    appChangeBodyMessage(color.label, color.value);
 }
 
-const appInitTransitions = function(){
-    appBody.classList.remove('preload');
-}
-
-const appRun = function(){
+const appInit = function(){
     appBuildColorMenu();
-    appBindToggler();
-    appBindColors();
-    appBindMenuClose();
+    appSetTogglerEvents();
+    appSetColorChoiceEvents();
+    appBindCloseMenuFromBody();
     appBindKeyPress();
-    appInitTransitions();
 };
 
-appRun();
+appInit();
 
 /**
  * 
