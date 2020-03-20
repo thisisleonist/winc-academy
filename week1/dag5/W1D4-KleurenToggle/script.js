@@ -59,23 +59,45 @@ const appColors = {
 // Object.keys example from source #1
 const colorCount = Object.keys(appColors).length;
 
+/**
+ *  
+ *  Builds menu of color choices based on appColors object
+ *  Inserts <li> items into the existing <ul> element in the DOM
+ * 
+ */
+
 const appBuildColorMenu = function(){
     for (let index = 1; index <= colorCount; index++) {
         color = appColors['color'+index];
-        output = '<li id="color'+index+'" style="background-color:'+color.value+'"><input id="color'+index+'btn" type="radio" name="color" value="'+color.value+'">'+color.label+'</li>';
+        output = '<li id="color' + index + '" style="background-color:' +
+            color.value + '"><input id="color' + index +
+            'btn" type="radio" name="color" value="' + color.value + '">' +
+            color.label + '</li>';
         appMenuChoices.innerHTML += output;
     }
 };
+
+/**
+ * 
+ *  Prevents color transition effect on background from firing
+ *  after page load
+ * 
+ */
 
 const appInitBkgndTransition = function(){
     if(!appBody.classList.contains('transition')) appBody.classList.add('transition');
 }
 
+/**
+ * 
+ *  @param {boolean} action: Show or hide the color menu
+ * 
+ */
+
 const appToggleColorMenu = function(action){
     if(action){
         appMenuColors.classList.remove('hide');
         appHamburgerImage.classList.add('rotate-right');
-        
         appMenuColors.classList.add('show');
     }else{
         appMenuColors.classList.add('hide');
@@ -84,10 +106,15 @@ const appToggleColorMenu = function(action){
     }
 };
 
+/**
+ * 
+ *  Sets the mouseenter and mouseleave eventListener
+ * 
+ */
+
 const appSetTogglerEvents = function(){
     appMenuToggler.addEventListener('mouseenter',function(){
         appToggleColorMenu(true);
-        // prevents *flash* from white to black after page load
         appInitBkgndTransition();
     });
     appMenuToggler.addEventListener('mouseleave',function(){
@@ -98,18 +125,41 @@ const appSetTogglerEvents = function(){
     });
 };
 
+/**
+ * 
+ *  @param {string} color: Color to apply to the body background
+ * 
+ */
+
 const appChangeBackgroundColor = function(color){
     appBody.style = 'background-color:'+color;
 };
+
+/**
+ * 
+ *  @param {string} label: Label for the selected color
+ *  @param {string} value: Color value for the selected color
+ */
 
 const appChangeBodyMessage = function(label, value){
     appBodyMessage.innerHTML = label+'<br /><span class="light">'+value+'</span>';
 };
 
-// Radio button checked example from source #2
+/**
+ * 
+ *  @param {string} button: Radio button checked example from source #2
+ * 
+ */
+
 const appSelectRadioButton = function(button){
     document.getElementById(button).checked = true;
 };
+
+/**
+ * 
+ *  Sets click eventListener on <li> element for all menu choices
+ * 
+ */
 
 const appSetColorChoiceEvents = function(){
     for (let index = 1; index <= colorCount; index++) {
@@ -125,13 +175,24 @@ const appSetColorChoiceEvents = function(){
     };
 };
 
+/**
+ * 
+ *  Sets click eventListener on <body> to close color menu
+ * 
+ */
+
 const appBindCloseMenuFromBody = function(){
     appBody.addEventListener('click',function(){
         appToggleColorMenu(false);
     });
 };
 
-// keyCode range 1 t/m 9 example from source #4
+/**
+ * 
+ *  keyCode for numeric key 1 through 9; example from source #4
+ * 
+ */
+
 const appBindKeyPress = function(){
     appBody.addEventListener('keypress', function(pressed){
         if( pressed.keyCode >= 49 &&
@@ -141,6 +202,13 @@ const appBindKeyPress = function(){
         }
     });
 }
+
+/**
+ * 
+ *  @param {number} key: Change menu and body background color
+ *  based on numeric keys 1 through 9
+ *  
+ */
 
 const appChangeBackgroundColorByKeypress = function(key){
     color = appColors['color'+key];
@@ -152,6 +220,12 @@ const appChangeBackgroundColorByKeypress = function(key){
     appSelectRadioButton('color'+key+'btn');
     appChangeBodyMessage(color.label, color.value);
 }
+
+/**
+ * 
+ *  Initialize the color toggle menu, choices and eventListeners
+ * 
+ */
 
 const appInit = function(){
     appBuildColorMenu();
