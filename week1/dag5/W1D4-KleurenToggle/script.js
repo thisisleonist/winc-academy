@@ -72,7 +72,7 @@ const appBuildColorMenu = function(){
         output = '<li id="color' + index + '" style="background-color:' +
             color.value + '"><input id="color' + index +
             'btn" type="radio" name="color" value="' + color.value + '">' +
-            color.label + '</li>';
+            color.label + '<span>' + index + '</span</li>';
         appMenuChoices.innerHTML += output;
     }
 };

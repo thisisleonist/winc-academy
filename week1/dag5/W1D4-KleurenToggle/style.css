@@ -84,6 +84,12 @@ ul,li{
     top: -3px;
 }
 
+#choices li span{
+    float: right;
+    font-weight: 300;
+    padding-right: 1rem;
+}
+
 #choices li:hover:before{
     content: '\00a0';
     background-image: linear-gradient(to right, transparent 0%, rgba(255,255,255,.3) 100%);
