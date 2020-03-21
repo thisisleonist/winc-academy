@@ -37,24 +37,24 @@ const appColors = {
 
     // Uncomment for additional colors
     
-    // color6: {
-    //     label: 'Yellow',
-    //     value: '#FFD500'
-    // },
-    // color7: {
-    //     label: 'Aqua',
-    //     value: '#29CCCC'
-    // },
-    // color8: {
-    //     label: 'Blue',
-    //     value: '#295FCC'
-    // },
-    // color9: {
-    //     label: 'Magenta',
-    //     value: '#9C3DCC'
-    // }
+    color6: {
+        label: 'Yellow',
+        value: '#FFD500'
+    },
+    color7: {
+        label: 'Aqua',
+        value: '#29CCCC'
+    },
+    color8: {
+        label: 'Blue',
+        value: '#295FCC'
+    },
+    color9: {
+        label: 'Magenta',
+        value: '#9C3DCC'
+    }
 
-}
+};
 
 // Object.keys example from source #1
 const colorCount = Object.keys(appColors).length;
@@ -85,8 +85,9 @@ const appBuildColorMenu = function(){
  */
 
 const appInitBkgndTransition = function(){
-    if(!appBody.classList.contains('transition')) appBody.classList.add('transition');
-}
+    if(!appBody.classList.contains('transition'))
+        appBody.classList.add('transition');
+};
 
 /**
  * 
@@ -167,18 +168,26 @@ const appSelectRadioButton = function(button){
  * 
  */
 
-const appSetColorChoiceEvents = function(){
+const appSetColorChoiceEventsLoop = function(){
     for (let index = 1; index <= colorCount; index++) {
-        color = appColors['color'+index];
-        let value = color.value;
-        let label = color.label;
-        document.getElementById('color'+index).addEventListener('click',function(){
-            appChangeBackgroundColor(value);
-            appSelectRadioButton('color'+index+'btn');
-            appChangeBodyMessage(label, value);
-            appToggleColorMenu(false);
-        });
-    };
+        appSetColorChoiceEvents('color'+index);
+    }
+};
+
+/**
+ * 
+ *  @param {string} color: Sets click eventListener on one <li> element
+ * 
+ */
+
+const appSetColorChoiceEvents = function(color){
+    document.getElementById(color).addEventListener('click',function(){
+        props = appColors[color];
+        appChangeBackgroundColor(props.value);
+        appSelectRadioButton(color+'btn');
+        appChangeBodyMessage(props.label, props.value);
+        appToggleColorMenu(false);
+    });
 };
 
 /**
@@ -207,7 +216,7 @@ const appSetKeyPressEvent = function(){
             appChangeBackgroundColorByKeypress(pressed.key);
         }
     });
-}
+};
 
 /**
  * 
@@ -218,11 +227,13 @@ const appSetKeyPressEvent = function(){
 
 const appChangeBackgroundColorByKeypress = function(key){
     color = appColors['color'+key];
+    value = color.value;
+    label = color.label;
     appInitBkgndTransition();
-    appChangeBackgroundColor(color.value);
+    appChangeBackgroundColor(value);
     appSelectRadioButton('color'+key+'btn');
-    appChangeBodyMessage(color.label, color.value);
-}
+    appChangeBodyMessage(label, value);
+};
 
 /**
  * 
@@ -233,7 +244,7 @@ const appChangeBackgroundColorByKeypress = function(key){
 const appInit = function(){
     appBuildColorMenu();
     appSetTogglerEvents();
-    appSetColorChoiceEvents();
+    appSetColorChoiceEventsLoop();
     appSetCloseMenuFromBodyEvent();
     appSetKeyPressEvent();
 };
