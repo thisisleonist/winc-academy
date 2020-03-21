@@ -114,7 +114,7 @@ const appToggleColorMenu = function(action){
 
 /**
  * 
- *  Sets the mouseenter and mouseleave eventListener
+ *  Sets the mouseover and mouseout eventListener
  * 
  */
 
