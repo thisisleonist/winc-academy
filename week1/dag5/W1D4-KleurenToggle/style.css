@@ -80,6 +80,7 @@ ul,li{
 }
 
 #choices li input{
+    cursor: pointer;
     position: relative;
     top: -3px;
 }

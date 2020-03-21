@@ -181,7 +181,7 @@ const appSetColorChoiceEvents = function(){
  * 
  */
 
-const appBindCloseMenuFromBody = function(){
+const appSetCloseMenuFromBodyEvent = function(){
     appBody.addEventListener('click',function(){
         appToggleColorMenu(false);
     });
@@ -193,7 +193,7 @@ const appBindCloseMenuFromBody = function(){
  * 
  */
 
-const appBindKeyPress = function(){
+const appSetKeyPressEvent = function(){
     appBody.addEventListener('keypress', function(pressed){
         if( pressed.keyCode >= 49 &&
             pressed.keyCode <= 57
@@ -231,8 +231,8 @@ const appInit = function(){
     appBuildColorMenu();
     appSetTogglerEvents();
     appSetColorChoiceEvents();
-    appBindCloseMenuFromBody();
-    appBindKeyPress();
+    appSetCloseMenuFromBodyEvent();
+    appSetKeyPressEvent();
 };
 
 appInit();
