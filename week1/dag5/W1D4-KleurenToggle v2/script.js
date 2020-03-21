@@ -220,7 +220,6 @@ const appChangeBackgroundColorByKeypress = function(key){
     color = appColors['color'+key];
     value = color.value;
     label = color.label;
-    // prevents *flash* from white to black after page load
     appInitBkgndTransition();
     appChangeBackgroundColor(color.value);
     appSelectRadioButton('color'+key+'btn');
