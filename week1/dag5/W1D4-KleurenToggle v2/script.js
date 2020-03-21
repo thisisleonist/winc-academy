@@ -218,8 +218,6 @@ const appSetKeyPressEvent = function(){
 
 const appChangeBackgroundColorByKeypress = function(key){
     color = appColors['color'+key];
-    value = color.value;
-    label = color.label;
     appInitBkgndTransition();
     appChangeBackgroundColor(color.value);
     appSelectRadioButton('color'+key+'btn');
