@@ -1,3 +1,3 @@
-# wincadademyfeo
+# Frontend developer - Winc Adademy
 
-Opdrachten en projecten
+Opdrachten en projecten voor de opleiding tot Frontend developer via Winc Adademy
