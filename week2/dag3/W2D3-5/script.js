@@ -167,7 +167,7 @@ const combinedWeightOf = function(array, pub){
 
 // 8
 
-const weightOf = function(array){
+const mostHeavyOf = function(array){
     heroes = array.map(items => [
         items.name,
         isNaN(parseInt(items.weight)) ? 0 : parseInt(items.weight)
@@ -178,4 +178,4 @@ const weightOf = function(array){
     return heroes[0];
 };
 
-console.log(weightOf(superheroes));
+console.log(mostHeavyOf(superheroes));
