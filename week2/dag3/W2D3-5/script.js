@@ -141,13 +141,13 @@ const firstAppearanceOf = function(array){
 
 // 5
 
-const onlyDcComics = function(array, pub){
+const onlyFrom = function(array, pub){
     return array.filter(items => items.publisher === pub)
                 .map(items => items.name);
 };
 
-// console.log(onlyDcComics(superheroes, 'DC Comics'));
-// console.log(onlyDcComics(superheroes, 'Marvel Comics'));
+// console.log(onlyFrom(superheroes, 'DC Comics'));
+// console.log(onlyFrom(superheroes, 'Marvel Comics'));
 
 
 // 6 en 7
