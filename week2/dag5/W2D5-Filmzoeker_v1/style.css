@@ -16,7 +16,8 @@ body{
     display: grid;
     align-items: center;
     justify-items: center;
-    background-color: black;
+    background: black url('backdrop.jpg') left top;
+    background-attachment: fixed;
     padding: 4rem 0;
 }
 
@@ -62,10 +63,10 @@ h1{
 }
 
 #filter-listing label{
-    background-color: rgba(255,255,255,.2);
+    background-color: rgba(127,127,127,.33);
     cursor: pointer;
     font-weight: 500;
-    min-width: 100%;
+    min-width: 200px;
     display: block;
     text-align: center;
     padding: 1rem;
@@ -74,7 +75,7 @@ h1{
 }
 
 #filter-listing label:hover{
-    background-color: rgba(255,255,255,.3);
+    background-color: rgba(127,127,127,.44);
     transition: background-color 100ms ease-in;
 }
 
@@ -95,20 +96,20 @@ h1{
     border: 0;
     line-height: 1rem;
     border-radius: 6px;
-    background-color: rgba(255,255,255,.2);
+    background-color: rgba(127,127,127,.33);
     color: white;
     transition: background-color 100ms ease-in;
     position: relative;
 }
 
 #search-form input:hover{
-    background-color: rgba(255,255,255,.3);
+    background-color: rgba(127,127,127,.44);
     transition: background-color 100ms ease-in;
 }
 
 #search-form input:focus{
-    box-shadow: 0 0 0 2px rgba(255,255,255,.5);
-    background-color: rgba(255,255,255,.2);
+    box-shadow: 0 0 0 2px rgba(127,127,127,.77);
+    background-color: rgba(127,127,127,.33);
     transition: box-shadow, background-color 100ms ease-in;
 }
 

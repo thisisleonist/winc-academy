@@ -7,7 +7,6 @@ const buildMovieItems = () => {
 const movieListing = document.getElementById('movie-listing');
 
 const buildMovieItem = metadata => {
-    //console.log(metadata);
 
     const movieItem = document.createElement("div");
     if(metadata.Type==='movie'){
@@ -51,6 +50,7 @@ const buildMovieItem = metadata => {
 buildMovieItems();
 
 const filterButtons = document.querySelectorAll('#filter-listing label');
+// const filterRadioButtons = document.querySelectorAll('#filter-listing input');
 
 const setFilterButtonEvents = () => {
     Array.from(filterButtons).forEach(button => {
@@ -58,6 +58,12 @@ const setFilterButtonEvents = () => {
             applyFilter(event.toElement.htmlFor);
         });
     });
+    // Array.from(filterRadioButtons).forEach(button => {
+    //     button.addEventListener('click', event => {
+    //         console.log(event);
+    //         applyFilter(event.value);
+    //     });
+    // });
 };
 
 setFilterButtonEvents();
@@ -72,34 +78,20 @@ const applyFilter = filter => {
             latest.forEach(metadata => buildMovieItem(metadata));
             break;
         case 'avengers':
-            const avengers = Array.from(movies.Movies).filter(movie => {
-                return movie.Title.includes('Avengers');
-            });
-            resetMovieListing();
-            avengers.forEach(metadata => buildMovieItem(metadata));
-            break;
-        case 'xmen':
-            const xmen = Array.from(movies.Movies).filter(movie => {
-                return movie.Title.includes('X-Men');
-            });
-            resetMovieListing();
-            xmen.forEach(metadata => buildMovieItem(metadata));
-            break;
+        case 'x-men':
         case 'princess':
-            const princess = Array.from(movies.Movies).filter(movie => {
-                return movie.Title.includes('Princess');
-            });
-            resetMovieListing();
-            princess.forEach(metadata => buildMovieItem(metadata));
-            break;
         case 'batman':
-            const batman = Array.from(movies.Movies).filter(movie => {
-                return movie.Title.includes('Batman');
-            });
-            resetMovieListing();
-            batman.forEach(metadata => buildMovieItem(metadata));
+            filterByTitle(filter);
             break;
     }
+};
+
+const filterByTitle = filter => {
+    const keywordSearch = Array.from(movies.Movies).filter(movie => {
+        return movie.Title.toLowerCase().includes(filter);
+    });
+    resetMovieListing();
+    keywordSearch.forEach(metadata => buildMovieItem(metadata));
 };
 
 const resetMovieListing = () => movieListing.innerHTML = '';
@@ -118,7 +110,7 @@ setSearchFieldEvent();
 
 const performSearch = (searchString) => {
     const searchResult = Array.from(movies.Movies).filter(movie => {
-        return (movie.Title).toLowerCase().includes(searchString.toLowerCase());
+        return (movie.Title+movie.Year+movie.Type).toLowerCase().includes(searchString.toLowerCase());
     });
     resetMovieListing();
     searchResult.forEach(metadata => buildMovieItem(metadata));
