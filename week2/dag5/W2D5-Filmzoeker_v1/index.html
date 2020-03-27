@@ -10,24 +10,48 @@
   </head>
 
   <body>
-    <div class="container">
-      <h1>Welkom bij de Winc filmzoeker</h1>
+    <div class="container" id="container">
+      <h1>Welkom bij de Winc filmzoeker!</h1>
+
       <div id="filter-listing">
-        <div><label for="latest"><input type="radio" name="filter" id="latest">Latest</label></div>
-        <div><label for="avengers"><input type="radio" name="filter" id="avengers">Avengers</div>
-        <div><label for="x-men"><input type="radio" name="filter" id="x-men">X-Men</div>
-        <div><label for="princess"><input type="radio" name="filter" id="princess">Princess</div>
-        <div><label for="batman"><input type="radio" name="filter" id="batman">Batman</div>
+        <div>
+          <label for="latest" class="tooltip">
+            <span class="tooltip-text">Alle films van 2014 of nieuwer</span>
+            <input type="radio" name="filter" id="latest">Recent
+          </label>
+        </div>
+
+        <div>
+          <label for="avengers" class="tooltip">
+            <span class="tooltip-text">Alle films met Avengers in de titel</span>
+            <input type="radio" name="filter" id="avengers">Avengers
+        </div>
+        <div>
+          <label for="x-men" class="tooltip">
+            <span class="tooltip-text">Alle films met X-Men in de titel</span>
+            <input type="radio" name="filter" id="x-men">X-Men
+          </div>
+        <div>
+          <label for="princess" class="tooltip">
+            <span class="tooltip-text">Alle films met Princess in de titel</span>
+            <input type="radio" name="filter" id="princess">Princess
+          </div>
+        <div>
+          <label for="batman" class="tooltip">
+            <span class="tooltip-text">Alle films met Batman in de titel</span>
+            <input type="radio" name="filter" id="batman">Batman
+          </div>
       </div>
+
       <div id="search">
         <div id="search-form">
           <span class="icon"></span>
           <input type="text" placeholder="Typ de titel van een film">
         </div>
       </div>
-      <div id="movie-listing">
 
-      </div>
+      <div id="movie-listing"></div>
+
     </div>
   </body>
 </html>

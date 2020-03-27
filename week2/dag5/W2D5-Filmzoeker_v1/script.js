@@ -1,9 +1,3 @@
-// console.log(movies);
-
-const buildMovieItems = () => {
-    Array.from(movies.Movies).forEach(metadata => buildMovieItem(metadata));
-};
-
 const movieListing = document.getElementById('movie-listing');
 
 const buildMovieItem = metadata => {
@@ -44,13 +38,14 @@ const buildMovieItem = metadata => {
     movieTitle.setAttribute('class', 'title');
     movieTitle.innerHTML = metadata.Title;
     movieItem.appendChild(movieTitle);
-
 };
 
-buildMovieItems();
+const buildMovieItems = () => {
+    Array.from(movies.Movies).forEach(metadata => buildMovieItem(metadata));
+};
 
 const filterButtons = document.querySelectorAll('#filter-listing label');
-// const filterRadioButtons = document.querySelectorAll('#filter-listing input');
+const filterRadioButtons = document.querySelectorAll('#filter-listing input');
 
 const setFilterButtonEvents = () => {
     Array.from(filterButtons).forEach(button => {
@@ -58,15 +53,12 @@ const setFilterButtonEvents = () => {
             applyFilter(event.toElement.htmlFor);
         });
     });
-    // Array.from(filterRadioButtons).forEach(button => {
-    //     button.addEventListener('click', event => {
-    //         console.log(event);
-    //         applyFilter(event.value);
-    //     });
-    // });
+    Array.from(filterRadioButtons).forEach(button => {
+        button.addEventListener('click', event => {
+            applyFilter(event.toElement.id);
+        });
+    });
 };
-
-setFilterButtonEvents();
 
 const applyFilter = filter => {
     switch(filter){
@@ -106,12 +98,21 @@ const setSearchFieldEvent = () => {
     });
 };
 
-setSearchFieldEvent();
-
 const performSearch = (searchString) => {
+    Array.from(filterRadioButtons).forEach(button => {
+        button.checked = false;
+    });
     const searchResult = Array.from(movies.Movies).filter(movie => {
         return (movie.Title+movie.Year+movie.Type).toLowerCase().includes(searchString.toLowerCase());
     });
     resetMovieListing();
     searchResult.forEach(metadata => buildMovieItem(metadata));
 };
+
+const initMovieSearcher = () => {
+    buildMovieItems();
+    setFilterButtonEvents();
+    setSearchFieldEvent();
+};
+
+initMovieSearcher();
