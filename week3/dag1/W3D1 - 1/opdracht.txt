@@ -1,0 +1,41 @@
+1
+
+theguardian.com = 185.53.178.6 (één van de IP-adressen)
+
+2
+
+traceroute werkt niet goed (vanwege beveiliging)
+
+151.101.1.111 is weer een ander IP-adres van theguardian.com
+Waarschijnlijk een CDN
+
+traceroute to theguardian.com (151.101.1.111), 10 hops max, 60 byte packets
+1 45.79.12.201 (45.79.12.201) 0.600 ms 45.79.12.202 (45.79.12.202) 0.526 ms 45.79.12.201 (45.79.12.201) 0.590 ms
+2 45.79.12.4 (45.79.12.4) 4.300 ms 45.79.12.6 (45.79.12.6) 4.291 ms 45.79.12.2 (45.79.12.2) 0.529 ms
+3 45.79.12.8 (45.79.12.8) 0.504 ms 0.498 ms 0.482 ms
+4 * * *
+5 * * *
+6 * * *
+7 * * *
+8 * * *
+9 * * *
+10 * * *
+
+3
+
+http://whois.domaintools.com/google.com
+Name Server: ns1.google.com
+Name Server: ns3.google.com
+Name Server: ns4.google.com
+Name Server: ns2.google.com
+
+http://whois.domaintools.com/wincacademy.nl
+ns0.transip.net
+ns1.transip.nl
+ns2.transip.eu
+
+Hosting: TransIP
+
+4
+
+My IP: 86.91.53.208
