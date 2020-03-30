@@ -1,0 +1,16 @@
+a)
+
+Response: 200 OK
+Apache is de webserver software voor de website van Winc Academy bij TransIP
+
+b)
+
+1:
+
+Response: 200 OK
+HTTP Status code zie je bovenaan de response headers
+
+2:
+
+Response: 404 NOT FOUND
+Deze komt terug omdat er geen URL met /delete-alles is
