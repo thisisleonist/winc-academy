@@ -1,0 +1,32 @@
+1:
+
+Status is 200 OK
+Body is JSON data over katten
+
+2:
+
+Status is 401 Unauthorized
+
+{
+    "Response": "False",
+    "Error": "No API key provided."
+}
+
+3: apikey = 896f18d6
+
+Status is 200 OK
+
+{
+    "Response": "False",
+    "Error": "Something went wrong."
+}
+
+Kennelijk ontbreekt er iets
+
+Parameter via header meegeven levert een HTML pagina op.
+
+Status is 200 OK
+
+Bij i = tt3896198 en apikey = 896f18d6 in GET url parameters
+
+Response Body = JSON data met films
