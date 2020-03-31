@@ -1,7 +1,9 @@
-// Korte versie van console.log: log()
-// Voordeel: alleen log() schrijven
-// Voordeel 2: alle console.log() items escapen door
-// console.log in log() functie te escapen :)
+/**
+ * Korte versie van console.log: log()
+ * Voordeel 1: alleen log() typen
+ * Voordeel 2: alle console.log() items uitschakelen
+ * door console.log in log() functie te escapen :)
+*/
 
 const log = msg => {
     console.log(msg);
