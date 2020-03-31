@@ -1,4 +1,11 @@
-const log = msg => console.log(msg);
+// Korte versie van console.log: log()
+// Voordeel: alleen log() schrijven
+// Voordeel 2: alle console.log() items escapen door
+// console.log in log() functie te escapen :)
+
+const log = msg => {
+    console.log(msg);
+};
 
 log("He hallo, ik ben eerste");
 

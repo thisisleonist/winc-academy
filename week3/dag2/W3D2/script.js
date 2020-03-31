@@ -1,3 +1,5 @@
+// Voorbeeld uit YouTube uitleg over callback & promises
+
 const log = msg => console.log(msg);
 
 const p = new Promise ( (resolve, reject) => {
