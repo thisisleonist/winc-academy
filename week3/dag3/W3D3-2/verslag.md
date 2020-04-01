@@ -12,7 +12,9 @@ Vervolgens ben ik twee maal observant geweest.
 
 3. Sarah was daarna junior en Lars senior. Ook Sarah had stap voor stap het project doorgewerkt. Zij kreeg de movies dataset niet ingelezen. Lars merkte op dat dit een fout was in de HTML. Sarah kon de kritiek goed verwerken.
 
-4. Als laatste was ik senior en Janneke junior. Zij vertelde nog weinig code samen te voegen tot functies met variabele input en veel te herhalen. Zo ontstond er een bug tijdens het filteren, waardoor de koppeling met IMDB niet goed werkte.
+Als laatste was ik senior en Janneke junior.
+
+4. Ze vertelde nog weinig code samen te voegen tot functies met variabele input en veel te herhalen. Zo ontstond er een bug tijdens het filteren, waardoor de koppeling met IMDB niet goed werkte.
 
 Als feedback had ik meegegeven dat de wijze van coden in principe ondergeschikt is aan het eindresultaat gezien vanuit de klant. Ik heb mijn ervaring met klanten en deadlines gedeeld, waarbij het vooral voor jezelf en eventueel je team belangrijk is dat je de code voor de toekomst goed documenteert.
 
