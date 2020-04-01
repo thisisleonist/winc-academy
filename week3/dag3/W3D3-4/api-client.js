@@ -6,19 +6,14 @@ const API_KEY = '79c1f23d5822955801447c6490744b56';
 
 const log = log => console.log(log);
 
-async function getData(apiUrl){
+const getData = async apiUrl => {
     try{
         const url = `${apiUrl}?api_key=${API_KEY}`;
-        const res = await fetch(url,{
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+        const res = await fetch(url,{method: 'GET'});
         const data = await res.json();
         //log(data);
         return data;
     } catch(error) {
-        log(error);
+        //log(error);
     }
-}
+};
