@@ -22,7 +22,7 @@ Dat kan door comments toe te voegen, door je aan bepaalde standaarden en afsprak
 
 Als laatste had Janneke de oplossing toegepast op haar versie van het project en zodoende ontdekt waar de bug in het filteren ontstaan was en hoe het anders dan wel beter had gekund.
 
-**Conslusie**
+**Conclusie**
 
 We hebben de eindresultaten bij iedereen bekeken en dat zag er goed en werkend uit, op de bug bij Janneke na. Sommigen gaven aan meer tijd besteed te hebben aan de CSS dan aan de JavaScript.
 
