@@ -1,7 +1,7 @@
 const log = log => console.log(log);
 
 const markers = [
-    { marker: { coords: { lat: 52.378361, lng: 4.854710 }, title: 'Winc Academy' } },
+    { marker: { coords: { lat: 52.378361, lng: 4.854710 }, title: 'Winc Academy', image: 'winc.png'} },
     { marker: { coords: { lat: 51.753870, lng: 4.152480 }, title: 'Leon Rijsdam' } }
 ];
 
@@ -12,7 +12,13 @@ function initMap() {
         center: { lat: 52.090736, lng: 5.12142 },
         zoom: 9,
         mapTypeId: 'terrain',
-        styles: MAP_STYLE
+        styles: MAP_STYLE,        
+        zoomControl: true,
+        mapTypeControl: false,
+        scaleControl: true,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false
     });
     addMarkers();
 }
@@ -29,7 +35,10 @@ const addMarkers = () => {
                 fontWeight: '700'
             },
             draggable: false,
-            animation: google.maps.Animation.DROP
+            animation: google.maps.Animation.DROP,
+            icon: {
+                url: item.marker.image
+            }
         });
     });
 };
