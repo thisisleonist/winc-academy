@@ -56,18 +56,3 @@ const tweetButton = document.getElementById('tweet');
 tweetButton.addEventListener('click',() =>{
     getRandomTweet();
 });
-
-const getPokemon = () => {
-    headers = {
-        'Accept': 'application/json'
-    };
-    getData("https://pokeapi.co/api/v2/pokemon/ditto/", headers).then(data =>
-        displayRandomJoke(data.joke)
-    );
-};
-
-
-const pokemonButton = document.getElementById('pokemon');
-pokemonButton.addEventListener('click',() =>{
-    alert('Pokemon komt hier');
-});
