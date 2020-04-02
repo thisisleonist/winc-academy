@@ -1,1 +1,3 @@
-console.log(API_KEY);
+const log = log => console.log(log);
+log(API_KEY);
+
