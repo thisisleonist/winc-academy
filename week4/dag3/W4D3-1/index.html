@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>W4D3-1</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+@import url(https://fonts.googleapis.com/css?family=Oswald:700);
+
+body {
+  background:#231F20;
+  text-align:center;
+}
+
+h1 {
+  color:#FFF;
+  font-family:'Oswald';
+  font-weight:700;
+  position:relative;  
+  margin:30px auto;
+  text-transform:uppercase;
+  width:550px;
+}
+
+h1::before, h1::after{
+    content: " ";
+    background-color: #4A90E2;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.75rem;
+    position: relative;
+    top: .7rem;
+}
+
+h1::before{
+    border-radius: 50% 0 0 50%;
+    margin-right: .5rem
+}
+
+h1::after{
+    border-radius: 0 50% 50% 0;
+    margin-left: .5rem
+}
+
+        </style>
+    </head>
+    <body>
+        <h1>Winc Academy is awesomesauce</h1>
+    </body>
+</html>
