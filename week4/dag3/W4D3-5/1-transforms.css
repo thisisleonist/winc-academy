@@ -1,0 +1,17 @@
+img{
+    transform: translateX(-200px); /* horizontaal, + right, - left */
+    transform: translateY(200px); /* verticaal, + down, - up */
+    transform: translate(200px, 200px); /* X, Y */
+
+    transform: scaleX(1); /* stretch X; 1 = 100%; 0 = 0%, 2 = 200% etc. */
+    transform: scaleY(1); /* stretch Y; 1 = 100%; 0 = 0%, 2 = 200% etc. */
+    transform: scale(1); /* stretch X and Y; 1 = 100%; 0 = 0%, 2 = 200% etc. */
+    transform: scale(1,1); /* stretch X, Y; 1 = 100%; 0 = 0%, 2 = 200% etc. */
+
+    transform: rotateX(45deg); /* squeeze vertical Ndeg; like scale */
+    transform: rotateY(90deg); /* squeeze horizxntal Ndeg like scale */
+    transform: rotateZ(-90deg); /* rotate clockwise, counter clockwise */
+    
+    transform: rotateZ(-90deg) translateY(200px) scale(2); /* sequentially */
+
+}

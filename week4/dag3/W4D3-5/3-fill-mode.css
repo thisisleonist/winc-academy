@@ -1,0 +1,22 @@
+.mario {
+
+    position: absolute;
+    top: -40px;
+    left: 0px;
+    animation-name: drive;
+    animation-duration: 3000ms;
+    animation-fill-mode: forwards; /* forwards: animatie stopt aan eind keyframe */
+    animation-fill-mode: backwards; /* forwards: animatie stopt aan begin keyframe */
+    animation-fill-mode: both; /* both: animatie start en stops aan begin en eind keyframe */
+    animation-delay: 2000ms;
+
+}
+
+@keyframes drive {
+    from {
+        transform: translateX(0)
+    }
+    to {
+        transform: translateX(700px)
+    }
+}
