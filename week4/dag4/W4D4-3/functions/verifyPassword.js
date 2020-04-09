@@ -1,12 +1,12 @@
 const passwordVerifier = function(password) {
-
+    
     if(password===null || password===undefined){
         return {
             score: 0,
             valid: false
         };
     }
-
+    
     let score = 0;
     const isNotBlank = (password) => {
         return password !== '' && password.length !== 0;
@@ -47,4 +47,24 @@ const passwordVerifier = function(password) {
     };
 };
 
-module.exports = passwordVerifier;
+const passwords = [
+    `henkie1`,
+    `1234a`,
+    `z`,
+    `henkie1234`,
+    `HENKhenk`,
+    `HENK33$`,
+    `1234`,
+    ``,
+    null,
+    `Een heel 1ang wachtwoord`
+];
+
+const verifyPassword = (password) => passwordVerifier(password);
+
+result = [];
+passwords.forEach(password => {
+    result.push(verifyPassword(password));
+});
+
+console.log(result);

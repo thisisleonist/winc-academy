@@ -9,7 +9,14 @@ const passwords = [
     `HENK33$`,
     `1234`,
     ``,
+    null
 ];
+
+passwords.forEach(password => {
+    test(`Password '${password}' is not valid password`, function () {
+        expect(passwordVerifier(password)).toBeTruthy();
+    });
+});
 
 passwords.forEach(password => {
     test(`Password '${password}' is not valid password`, function () {
