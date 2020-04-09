@@ -11,9 +11,6 @@ const passwordVerifier = function(password) {
     const isNotBlank = (password) => {
         return password !== '' && password.length !== 0;
     };
-    const isNotNull = (password) => {
-        return password !== null;
-    };
     const isLessThan8Chars = (password) => {
         return password.length < 8;
     };
@@ -28,11 +25,6 @@ const passwordVerifier = function(password) {
     };
 
     if(isNotBlank(password)) score++;
-    if(isNotNull(password)){
-        score++;
-    } else {
-        score = 0;
-    }
     if(isLessThan8Chars(password)) score--;
     if(hasUppercase(password)) score++;
     if(hasDigit(password)) score++;
