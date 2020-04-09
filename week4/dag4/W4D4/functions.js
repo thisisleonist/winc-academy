@@ -5,4 +5,4 @@ const functions = {
     }
 };
 
-module.export = functions;
+module.exports = functions;
