@@ -1,3 +1,12 @@
+/**
+ * 
+ *  @param {*} password 
+ * 
+ *  RegEx from https://riptutorial.com/regex/example/18996/a-password-containing-at-least-1-uppercase--1-lowercase--1-digit--1-special-character-and-have-a-length-of-at-least-of-10
+ 
+ */
+
+
 const passwordVerifier = function(password) {
 
     if(password===null || password===undefined){
