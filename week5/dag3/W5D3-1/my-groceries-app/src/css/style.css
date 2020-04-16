@@ -22,49 +22,82 @@ body{
 }
 
 #root{
-  background: hsl(0, 0%, 80%);
+  /* background: hsl(0, 0%, 80%); */
   width: 800px;
 }
 
 #container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
 }
 
 header {
   grid-area: 1 / 1 / 2 / 3;
   text-align: center;
-  background: hsl(0, 0%, 70%);
+  background: hsl(200, 50%, 30%);
+  border-radius: 3px;
+  color: hsl(0, 0%, 100%);
 }
+
 h1{
   font-size: 2rem;
   line-height: 5rem;
+  margin-bottom: .5rem;
 }
 
 #addGrocery {
   grid-area: 2 / 1 / 3 / 2;
-  background: hsl(0, 0%, 60%);
+  /* background: hsl(0, 0%, 60%); */
+  padding: .5rem 1rem;
 }
 
 #clearCart {
   grid-area: 2 / 2 / 3 / 3;
-  background: hsl(0, 0%, 60%);
+  /* background: hsl(0, 0%, 60%); */
+  padding: .5rem 1rem;
 }
 
 #groceries {
   grid-area: 3 / 1 / 4 / 2;
-  background: hsl(0, 0%, 50%);
+  /* background: hsl(0, 0%, 50%); */
 }
 
 #cart {
   grid-area: 3 / 2 / 4 / 3;
-  background: hsl(0, 0%, 50%);
+  /* background: hsl(0, 0%, 50%); */
 }
 
 #groceries ul,
 #cart ul{
   list-style-type: none;
+}
+
+#groceries ul li,
+#cart ul li{
+  padding: .5rem 1rem;
+  margin: .25rem 0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#groceries ul li:last-child,
+#cart ul li:last-child{
+  margin: 0;
+}
+
+#groceries ul li:nth-child(odd){
+  background-color: hsl(20, 50%, 70%);
+}
+
+#groceries ul li:nth-child(even){
+  background-color: hsl(20, 40%, 80%);
+}
+
+#cart ul li:nth-child(odd){
+  background-color: hsl(200, 50%, 70%);
+}
+
+#cart ul li:nth-child(even){
+  background-color: hsl(200, 40%, 80%);
 }
