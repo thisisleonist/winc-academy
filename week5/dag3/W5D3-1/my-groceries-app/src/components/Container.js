@@ -19,6 +19,7 @@ class Container extends Component {
         { id: 4, title: 'Komkommer' },
       ],
       addGrocery: '',
+      disableAddButton: '',
     };
     this.clickItem = this.clickItem.bind(this);
     this.handleAddGrocery = this.handleAddGrocery.bind(this);
@@ -29,20 +30,39 @@ class Container extends Component {
   handleChange(event) {
     const { name, value } = event.target;
     this.setState((prevState) => {
-      return {
-        [name]: value,
-      };
+      const exists = prevState.groceryItems.find(
+        (item) => item.title === value,
+      );
+      console.log(exists);
+
+      if (exists !== undefined || this.state.addGrocery === '') {
+        return {
+          [name]: value,
+          disableAddButton: 'disabled',
+        };
+      } else {
+        return {
+          [name]: value,
+          disableAddButton: 'enabled',
+        };
+      }
     });
     event.preventDefault();
   }
 
   handleAddGrocery = (event) => {
     this.setState((prevState) => {
-      const newState = prevState.groceryItems.concat({
-        id: prevState.groceryItems.length + 1,
-        title: this.state.addGrocery,
-      });
-      return { groceryItems: newState };
+      const exists = prevState.groceryItems.find(
+        (item) => item.title === this.state.addGrocery,
+      );
+      if (exists === undefined) {
+        const newState = prevState.groceryItems.concat({
+          id: prevState.groceryItems.length + 1,
+          title: this.state.addGrocery,
+        });
+        return { groceryItems: newState };
+      } else {
+      }
     });
     event.preventDefault();
   };
@@ -84,7 +104,7 @@ class Container extends Component {
             onChange={this.handleChange}
             placeholder="Voeg een item toe"
           />
-          <button>Add</button>
+          <button disabled={this.state.disableAddButton}>Voeg toe</button>
         </form>
         <form id="clearCart" onSubmit={this.handleEmptyCart}>
           <button>Leeg boodschappenmand</button>
