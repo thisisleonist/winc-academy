@@ -37,11 +37,10 @@ class Container extends Component {
   }
 
   handleAddGrocery = (event) => {
-    const value = document.getElementById('addGroceryText').value;
     this.setState((prevState) => {
       const newState = prevState.groceryItems.concat({
         id: prevState.groceryItems.length + 1,
-        title: value,
+        title: this.state.addGrocery,
       });
       return { groceryItems: newState };
     });
