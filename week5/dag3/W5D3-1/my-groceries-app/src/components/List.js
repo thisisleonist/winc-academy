@@ -3,12 +3,21 @@ import ListItem from "./ListItem";
 
 class List extends Component {
 
+    constructor(){
+        super();
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(){
+        alert(this.title);
+    }
+
     render(){
 
         const listItems = this.props.listItems.map(item =>
-            <ListItem key={item.id} title={item.title} />
+            <ListItem id={item.id} key={item.id} title={item.title} handleClick={this.handleClick} />
         );
-    
+
         return (
             <ul>
                 {listItems}

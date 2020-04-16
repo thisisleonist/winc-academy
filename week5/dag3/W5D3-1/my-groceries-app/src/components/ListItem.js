@@ -2,22 +2,12 @@ import React, {Component} from "react";
 
 class ListItem extends Component {
 
-    constructor(){
-        super()
-        this.clickItem = this.clickItem.bind(this)
-    }
-
-    clickItem(){
-        alert(this.props.title)
-    }
-
     render(){
-
         return (
             <li
-                key={this.props.key}
+                key={this.props.id}
                 className="list-item"
-                onClick={this.clickItem}
+                onClick={this.props.handleClick}
                 value={this.props.title}
             >
             {this.props.title}

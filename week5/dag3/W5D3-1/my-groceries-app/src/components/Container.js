@@ -25,10 +25,28 @@ class Container extends Component {
     render(){
 
         return (
-            <div>
-                <GroceryList groceryItems={this.state.groceryItems}/>
-                <ShoppingList shoppingListItems={this.state.shoppingListItems}/>
+            <div id="container"> 
+                <header>
+                    <h1>Boodschappenlijst</h1>
+                </header>
+
+                <form id="addGrocery">
+                    #addGrocery
+                </form>
+
+                <form id="clearCart">
+                    #clearCart
+                </form>
+
+                <div id="groceries">
+                    <GroceryList groceryItems={this.state.groceryItems}/>
+                </div>
+
+                <div id="cart">
+                    <ShoppingList shoppingListItems={this.state.shoppingListItems}/>
+                </div> 
             </div>
+                
         )
     }
 
