@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import List from './List';
 
 function App() {
   return (
     <div>
-      Hello World!
+      <List/>
     </div>
-  );
-}
+  )
+};
 
-export default App
+export default App;
