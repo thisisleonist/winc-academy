@@ -58,7 +58,6 @@ class Container extends Component {
         const newState = prevState.groceryItems.concat({
           id: prevState.groceryItems.length + 1,
           title: this.state.addGrocery,
-          count: 1,
         });
         return { groceryItems: newState };
       } else {
@@ -118,6 +117,8 @@ class Container extends Component {
   }
 
   render() {
+    console.log(this.state);
+
     return (
       <div id="container">
         <header>
