@@ -1,10 +1,10 @@
 import React from 'react';
-import List from './List';
+import Container from './Container';
 
 function App() {
   return (
     <div>
-      <List/>
+      <Container/>
     </div>
   )
 };

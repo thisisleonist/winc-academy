@@ -8,19 +8,19 @@ class ListItem extends Component {
     }
 
     clickItem(){
-        alert(this.props.item.title)
+        alert(this.props.title)
     }
 
     render(){
 
         return (
             <li
-                key={this.props.item.id}
+                key={this.props.key}
                 className="list-item"
                 onClick={this.clickItem}
-                value={this.props.item.title}
+                value={this.props.title}
             >
-            {this.props.item.title}
+            {this.props.title}
             </li>
         )
     }
