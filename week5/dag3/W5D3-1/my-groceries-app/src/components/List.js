@@ -19,7 +19,7 @@ class List extends Component {
 
 
         const listItems = this.state.groceryItems.map(item =>
-            <ListItem item={item} />
+            <ListItem key={item.id} item={item} />
         );
     
         return (

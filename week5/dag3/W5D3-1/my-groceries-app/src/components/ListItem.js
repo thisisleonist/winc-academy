@@ -4,10 +4,11 @@ class ListItem extends Component {
 
     constructor(){
         super()
+        this.clickItem = this.clickItem.bind(this)
     }
 
     clickItem(){
-
+        alert(this.props.item.title)
     }
 
     render(){
