@@ -59,7 +59,7 @@ class Container extends Component {
           id: prevState.groceryItems.length + 1,
           title: this.state.addGrocery,
         });
-        return { groceryItems: newState };
+        return { disableAddButton: 'disabled', groceryItems: newState };
       } else {
       }
     });

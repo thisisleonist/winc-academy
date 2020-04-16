@@ -74,6 +74,7 @@ h1 {
   background-color: hsl(0, 100%, 100%);
   border-radius: 3px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 #addGrocery button:focus {
@@ -89,6 +90,15 @@ h1 {
   top: 1px;
   left: 1px;
   background-color: hsl(200, 100%, 90%);
+}
+
+#addGrocery button:disabled {
+  cursor: not-allowed;
+  border: 1px solid hsla(0, 0%, 60%, 0.5);
+}
+
+#addGrocery button:disabled:hover {
+  background-color: hsl(0, 100%, 100%);
 }
 
 #clearCart {
@@ -107,6 +117,7 @@ h1 {
   background-color: hsl(0, 100%, 100%);
   border-radius: 3px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 #clearCart button:focus {
