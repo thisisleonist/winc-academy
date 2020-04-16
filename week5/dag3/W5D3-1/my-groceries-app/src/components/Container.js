@@ -33,7 +33,6 @@ class Container extends Component {
       const exists = prevState.groceryItems.find(
         (item) => item.title === value,
       );
-      console.log(exists, value);
 
       if (exists !== undefined || value === '') {
         return {
