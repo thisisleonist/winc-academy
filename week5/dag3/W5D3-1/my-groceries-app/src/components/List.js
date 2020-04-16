@@ -11,6 +11,7 @@ class List extends Component {
           key={item.id}
           title={item.title}
           origin={this.props.origin}
+          count={item.count}
         />
       ));
       return <ul>{listItems}</ul>;

@@ -10,6 +10,7 @@ class ListItem extends Component {
         value={this.props.title}
       >
         {this.props.title}
+        <span>{this.props.count}</span>
       </li>
     );
   }

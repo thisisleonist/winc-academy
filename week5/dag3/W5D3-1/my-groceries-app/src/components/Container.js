@@ -7,19 +7,19 @@ class Container extends Component {
     super();
     this.state = {
       shoppingListItems: [
-        { id: 1, title: 'Brood' },
-        { id: 2, title: 'Boter' },
-        { id: 3, title: 'Courgette' },
-        { id: 4, title: 'Gehakt' },
+        { id: 1, title: 'Brood', count: 1 },
+        { id: 2, title: 'Boter', count: 1 },
+        { id: 3, title: 'Courgette', count: 1 },
+        { id: 4, title: 'Gehakt', count: 1 },
       ],
       groceryItems: [
         { id: 1, title: 'Appels' },
         { id: 2, title: 'Wortels' },
         { id: 3, title: 'Kaas' },
-        { id: 4, title: 'Komkommer' },
+        { id: 4, title: 'Gehakt' },
       ],
       addGrocery: '',
-      disableAddButton: '',
+      disableAddButton: 'disabled',
     };
     this.clickItem = this.clickItem.bind(this);
     this.handleAddGrocery = this.handleAddGrocery.bind(this);
@@ -33,9 +33,9 @@ class Container extends Component {
       const exists = prevState.groceryItems.find(
         (item) => item.title === value,
       );
-      console.log(exists);
+      console.log(exists, value);
 
-      if (exists !== undefined || this.state.addGrocery === '') {
+      if (exists !== undefined || value === '') {
         return {
           [name]: value,
           disableAddButton: 'disabled',
@@ -43,7 +43,7 @@ class Container extends Component {
       } else {
         return {
           [name]: value,
-          disableAddButton: 'enabled',
+          disableAddButton: '',
         };
       }
     });
@@ -59,6 +59,7 @@ class Container extends Component {
         const newState = prevState.groceryItems.concat({
           id: prevState.groceryItems.length + 1,
           title: this.state.addGrocery,
+          count: 1,
         });
         return { groceryItems: newState };
       } else {
@@ -80,11 +81,39 @@ class Container extends Component {
     if (origin === true) {
       this.setState((prevState) => {
         let clickedItem = prevState.groceryItems.find((item) => item.id === id);
-        const newState = prevState.shoppingListItems.concat({
-          id: prevState.shoppingListItems.length + 1,
-          title: clickedItem.title,
-        });
-        return { shoppingListItems: newState };
+
+        const exists = prevState.shoppingListItems.find(
+          (item) => item.title === clickedItem.title,
+        );
+
+        if (exists === undefined) {
+          let clickedItem = prevState.groceryItems.find(
+            (item) => item.id === id,
+          );
+          const newState = prevState.shoppingListItems.concat({
+            id: prevState.shoppingListItems.length + 1,
+            title: clickedItem.title,
+            count: 1,
+          });
+          return { shoppingListItems: newState };
+        } else {
+          const newState = prevState.shoppingListItems.map((item) => {
+            if (item.title === clickedItem.title) {
+              return {
+                id: item.id,
+                title: item.title,
+                count: item.count + 1,
+              };
+            } else {
+              return {
+                id: item.id,
+                title: item.title,
+                count: item.count,
+              };
+            }
+          });
+          return { shoppingListItems: newState };
+        }
       });
     }
   }
