@@ -1,35 +1,32 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true
+    env: {
+      browser: true,
+      es6: true,
     },
-    "extends": "plugin:react/recommended",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+    parser: 'babel-eslint',
+    extends: ['airbnb', 'prettier', 'prettier/react'],
+    globals: {
+      Atomics: 'readonly',
+      SharedArrayBuffer: 'readonly',
     },
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+        modules: true,
+      },
+      ecmaVersion: 2018,
+      sourceType: 'module',
     },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
-    ],
-    "rules": {
-        "react/jsx-filename-extension": [
-            2,
-            {
-              "extensions": [".js", ".jsx"]
-            }
-          ],
-          "react/forbid-prop-types": [0],
-          "react/require-default-props": [0],
-          "global-require": [0],
-          "no-underscore-dangle": [0]
-    }
-};
+    plugins: ['react', 'prettier'],
+    rules: {
+      'prettier/prettier': 'error',
+      'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+      'react/forbid-prop-types': [0, { forbid: ['any'] }],
+      'react/prop-types': 0,
+    },
+    env: {
+      jest: true,
+      browser: true,
+      node: true,
+    },
+  };
