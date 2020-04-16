@@ -7,6 +7,7 @@ class GroceryList extends Component {
       <List
         clickItem={this.props.clickItem}
         listItems={this.props.groceryItems}
+        origin={true}
       />
     );
   }

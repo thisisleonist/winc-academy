@@ -6,7 +6,7 @@ class ListItem extends Component {
       <li
         key={this.props.id}
         className="list-item"
-        onClick={() => this.props.clickItem(this.props.id)}
+        onClick={() => this.props.clickItem(this.props.id, this.props.origin)}
         value={this.props.title}
       >
         {this.props.title}

@@ -7,6 +7,7 @@ class ShoppingList extends Component {
       <List
         clickItem={this.props.clickItem}
         listItems={this.props.shoppingListItems}
+        origin={false}
       />
     );
   }

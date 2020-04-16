@@ -2,9 +2,8 @@
   box-sizing: border-box;
   font-size: 1rem;
   line-height: 1.333rem;
-  font-family: --apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
+  font-family: --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   word-wrap: break-word;
   user-select: none;
   margin: 0;
@@ -13,15 +12,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body{
+body {
   color: hsl(0, 0%, 0%);
   margin: 1rem;
-  background: hsl(0, 0%, 90%);
+  /* background: hsl(0, 0%, 90%); */
   display: grid;
   justify-content: center;
 }
 
-#root{
+#root {
   /* background: hsl(0, 0%, 80%); */
   width: 800px;
 }
@@ -40,22 +39,22 @@ header {
   color: hsl(0, 0%, 100%);
 }
 
-h1{
+h1 {
   font-size: 2rem;
   line-height: 5rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 #addGrocery {
   grid-area: 2 / 1 / 3 / 2;
   /* background: hsl(0, 0%, 60%); */
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 #clearCart {
   grid-area: 2 / 2 / 3 / 3;
   /* background: hsl(0, 0%, 60%); */
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 #groceries {
@@ -69,35 +68,35 @@ h1{
 }
 
 #groceries ul,
-#cart ul{
+#cart ul {
   list-style-type: none;
 }
 
 #groceries ul li,
-#cart ul li{
-  padding: .5rem 1rem;
-  margin: .25rem 0;
+#cart ul li {
+  padding: 0.5rem 1rem;
+  margin: 0.25rem 0;
   border-radius: 3px;
   cursor: pointer;
 }
 
 #groceries ul li:last-child,
-#cart ul li:last-child{
+#cart ul li:last-child {
   margin: 0;
 }
 
-#groceries ul li:nth-child(odd){
+#groceries ul li:nth-child(odd) {
   background-color: hsl(20, 50%, 70%);
 }
 
-#groceries ul li:nth-child(even){
+#groceries ul li:nth-child(even) {
   background-color: hsl(20, 40%, 80%);
 }
 
-#cart ul li:nth-child(odd){
+#cart ul li:nth-child(odd) {
   background-color: hsl(200, 50%, 70%);
 }
 
-#cart ul li:nth-child(even){
+#cart ul li:nth-child(even) {
   background-color: hsl(200, 40%, 80%);
 }

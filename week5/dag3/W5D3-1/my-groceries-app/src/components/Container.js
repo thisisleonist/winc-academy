@@ -18,29 +18,78 @@ class Container extends Component {
         { id: 3, title: 'Kaas' },
         { id: 4, title: 'Komkommer' },
       ],
+      addGrocery: '',
     };
     this.clickItem = this.clickItem.bind(this);
+    this.handleAddGrocery = this.handleAddGrocery.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleEmptyCart = this.handleEmptyCart.bind(this);
   }
 
-  clickItem(id) {
+  handleChange(event) {
+    const { name, value } = event.target;
     this.setState((prevState) => {
-      let clickedItem = prevState.groceryItems.find((item) => item.id === id);
-      console.log(clickedItem);
-      clickedItem.id = prevState.shoppingListItems.length;
-      const newState = prevState.shoppingListItems.concat(clickedItem);
-      return { shoppingListItems: newState };
+      return {
+        [name]: value,
+      };
     });
+    event.preventDefault();
+  }
+
+  handleAddGrocery = (event) => {
+    const value = document.getElementById('addGroceryText').value;
+    this.setState((prevState) => {
+      const newState = prevState.groceryItems.concat({
+        id: prevState.groceryItems.length + 1,
+        title: value,
+      });
+      return { groceryItems: newState };
+    });
+    event.preventDefault();
+  };
+
+  handleEmptyCart = (event) => {
+    this.setState((prevState) => {
+      return {
+        shoppingListItems: [],
+      };
+    });
+    event.preventDefault();
+  };
+
+  clickItem(id, origin) {
+    if (origin === true) {
+      this.setState((prevState) => {
+        let clickedItem = prevState.groceryItems.find((item) => item.id === id);
+        const newState = prevState.shoppingListItems.concat({
+          id: prevState.shoppingListItems.length + 1,
+          title: clickedItem.title,
+        });
+        return { shoppingListItems: newState };
+      });
+    }
   }
 
   render() {
-    //console.log(this.state);
     return (
       <div id="container">
         <header>
           <h1>Boodschappenlijst</h1>
         </header>
-        <form id="addGrocery">#addGrocery</form>
-        <form id="clearCart">#clearCart</form>
+        <form id="addGrocery" onSubmit={this.handleAddGrocery}>
+          <input
+            id="addGroceryText"
+            type="text"
+            name="addGrocery"
+            value={this.state.addGrocery}
+            onChange={this.handleChange}
+            placeholder="Voeg een item toe"
+          />
+          <button>Add</button>
+        </form>
+        <form id="clearCart" onSubmit={this.handleEmptyCart}>
+          <button>Leeg boodschappenmand</button>
+        </form>
         <div id="groceries">
           <GroceryList
             clickItem={this.clickItem}
