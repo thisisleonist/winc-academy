@@ -7,7 +7,7 @@ class GroceryList extends Component {
 
         return (
             <div>
-                {<List listItems={this.props.groceryItems}/>}
+                {<List clickItem={this.props.clickItem} listItems={this.props.groceryItems}/>}
             </div>
         )
     }

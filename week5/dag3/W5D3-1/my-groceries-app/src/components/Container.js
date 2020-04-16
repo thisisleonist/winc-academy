@@ -4,8 +4,8 @@ import ShoppingList from "./ShoppingList";
 
 class Container extends Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             shoppingListItems: [
                 { id: 1, title: "Brood" },
@@ -20,8 +20,16 @@ class Container extends Component {
                 { id: 4, title: "Komkommer" }
               ]
         };
+        this.clickItem = this.clickItem.bind(this);
     }
     
+    clickItem(event) {
+        const { name, value } = event.target
+        this.setState({
+            [name]: value
+        })
+    }
+
     render(){
 
         return (
@@ -39,11 +47,11 @@ class Container extends Component {
                 </form>
 
                 <div id="groceries">
-                    <GroceryList groceryItems={this.state.groceryItems}/>
+                    <GroceryList clickItem={this.clickItem} groceryItems={this.state.groceryItems}/>
                 </div>
 
                 <div id="cart">
-                    <ShoppingList shoppingListItems={this.state.shoppingListItems}/>
+                    <ShoppingList clickItem={this.clickItem} shoppingListItems={this.state.shoppingListItems}/>
                 </div> 
             </div>
                 

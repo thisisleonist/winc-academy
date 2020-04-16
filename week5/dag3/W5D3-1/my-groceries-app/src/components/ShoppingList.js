@@ -7,7 +7,7 @@ class ShoppingList extends Component {
 
         return (
             <div>
-                {<List listItems={this.props.shoppingListItems}/>}
+                {<List clickItem={this.props.clickItem} listItems={this.props.shoppingListItems}/>}
             </div>
         )
     }
