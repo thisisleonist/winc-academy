@@ -39,17 +39,16 @@ class Container extends Component {
           [name]: value,
           disableAddButton: 'disabled',
         };
-      } else {
-        return {
-          [name]: value,
-          disableAddButton: '',
-        };
       }
+      return {
+        [name]: value,
+        disableAddButton: '',
+      };
     });
     event.preventDefault();
   }
 
-  handleAddGrocery = (event) => {
+  handleAddGrocery(event) {
     this.setState((prevState) => {
       const exists = prevState.groceryItems.find(
         (item) => item.title === this.state.addGrocery,
@@ -60,32 +59,33 @@ class Container extends Component {
           title: this.state.addGrocery,
         });
         return { disableAddButton: 'disabled', groceryItems: newState };
-      } else {
       }
     });
     event.preventDefault();
-  };
+  }
 
-  handleEmptyCart = (event) => {
+  handleEmptyCart(event) {
     this.setState((prevState) => {
       return {
         shoppingListItems: [],
       };
     });
     event.preventDefault();
-  };
+  }
 
   clickItem(id, origin) {
     if (origin === true) {
       this.setState((prevState) => {
-        let clickedItem = prevState.groceryItems.find((item) => item.id === id);
+        const clickedItem = prevState.groceryItems.find(
+          (item) => item.id === id,
+        );
 
         const exists = prevState.shoppingListItems.find(
           (item) => item.title === clickedItem.title,
         );
 
         if (exists === undefined) {
-          let clickedItem = prevState.groceryItems.find(
+          const clickedItem = prevState.groceryItems.find(
             (item) => item.id === id,
           );
           const newState = prevState.shoppingListItems.concat({
@@ -94,24 +94,22 @@ class Container extends Component {
             count: 1,
           });
           return { shoppingListItems: newState };
-        } else {
-          const newState = prevState.shoppingListItems.map((item) => {
-            if (item.title === clickedItem.title) {
-              return {
-                id: item.id,
-                title: item.title,
-                count: item.count + 1,
-              };
-            } else {
-              return {
-                id: item.id,
-                title: item.title,
-                count: item.count,
-              };
-            }
-          });
-          return { shoppingListItems: newState };
         }
+        const newState = prevState.shoppingListItems.map((item) => {
+          if (item.title === clickedItem.title) {
+            return {
+              id: item.id,
+              title: item.title,
+              count: item.count + 1,
+            };
+          }
+          return {
+            id: item.id,
+            title: item.title,
+            count: item.count,
+          };
+        });
+        return { shoppingListItems: newState };
       });
     }
   }
