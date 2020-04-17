@@ -15,13 +15,11 @@
 body {
   color: hsl(0, 0%, 0%);
   margin: 1rem;
-  /* background: hsl(0, 0%, 90%); */
   display: grid;
   justify-content: center;
 }
 
 #root {
-  /* background: hsl(0, 0%, 80%); */
   width: 800px;
 }
 
