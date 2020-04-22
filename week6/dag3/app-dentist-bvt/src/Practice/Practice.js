@@ -1,5 +1,9 @@
 import React from 'react'
-import Dentists from './dentists.json'
+import DentistData from '../Dataset/DentistData'
+import AssistantData from '../Dataset/AssistantData'
+import PatientData from '../Dataset/PatientData'
+import AppointmentData from '../Dataset/AppointmentData'
+import DayList from './DayList'
 
 export default class Practice extends React.Component {
     constructor() {
@@ -8,55 +12,70 @@ export default class Practice extends React.Component {
             dentists: [],
             assistants: [],
             patients: [],
-            appointments: []
+            appointments: [],
+            displayDay: 1
         }
-        this.createDayView = this.createDayView.bind(this)
     }
 
     componentDidMount() {
-        const dataset = ['dentists', 'assistants', 'patients', 'appointments']
         this.setState(state => {
-            let newState = state
-            dataset.forEach(set => {
-                this.getData('GET', `${set}.json`).then(data => {
-                    newState[set] = data
-                })
-            })
-            return newState
+            state.dentists = DentistData()
+            state.assistants = AssistantData()
+            state.patients = PatientData()
+            state.appointments = AppointmentData()
+            return state
         })
     }
 
-    async getData(method, api, body) {
-        try {
-            let result = await fetch(api, {
-                method: method,
-                body: JSON.stringify(body)
-            })
-            return await result.json()
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    createDayView = day => {
-        console.log(this.state)
-
-        // const appointments = this.state.appointments
-        // const appointmentList = appointments.filter(appointment => {
-        //     return appointment.day === day
-        // })
-        return 'Hello World'
-        // for (i = 0; i < 30; i++) {
-        //     appointments.push(`<li class="appointment">
-        //     <div class="time">${getRandomTime()}</div>
-        //     <div class="patient">Patiënt: ${getRandomName()}</div>
-        //     <div class="dentist">Tandarts: ${getRandomName()}</div>
-        //     <div class="assistant">Assistent: ${getRandomName()}</div>
-        //     </li>`)
-        // }
+    displayDay(event) {
+        event.preventDefault()
+        const date = event.target.value
+        this.setState(state => {
+            state.displayDay = date
+            return state
+        })
     }
 
     render() {
-        return <ul>{this.createDayView(2)}</ul>
+        const dates = [
+            1,
+            2,
+            3,
+            4,
+            5,
+            8,
+            9,
+            10,
+            11,
+            12,
+            15,
+            16,
+            17,
+            18,
+            19,
+            22,
+            23,
+            24,
+            25,
+            26
+        ]
+        const options = dates.map(date => {
+            return (
+                <option key={date} value={date}>
+                    {date} april
+                </option>
+            )
+        })
+
+        return (
+            <React.Fragment>
+                <select onChange={event => this.displayDay(event)}>
+                    {options}
+                </select>
+                <ul className='dayview'>
+                    <DayList date={this.state.displayDay} state={this.state} />
+                </ul>
+            </React.Fragment>
+        )
     }
 }
