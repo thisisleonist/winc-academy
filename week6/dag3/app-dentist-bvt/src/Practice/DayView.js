@@ -1,7 +1,6 @@
 import React from 'react'
-import {convertCompilerOptionsFromJson} from 'typescript'
 
-const DayList = props => {
+const DayView = props => {
     const {state, date} = props
     const {dentists, assistants, patients, appointments} = state
 
@@ -75,4 +74,4 @@ const getAssistant = (assistants, id, dataToReturn) => {
     return assistant
 }
 
-export default DayList
+export default DayView
