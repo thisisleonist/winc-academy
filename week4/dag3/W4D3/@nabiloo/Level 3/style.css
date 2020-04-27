@@ -1,0 +1,115 @@
+body {
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(212, 223, 235);
+}
+
+
+nav {
+    position: absolute;
+    right: 100px;
+    top: 10px;
+    width: 400px;
+    right: -215px;
+    top: 470px; 
+}
+
+.social-media {
+  
+    height: 40px;
+    right: 300px;
+    transform: translateX(90px);
+    transition: transform 1s ease;
+   
+}
+
+.social-media:hover {
+    transform: translateX(-200px);
+    transition: transform 1s ease;
+
+}
+
+
+
+
+.social-media.blog {
+    background-color: #e17b77;    
+}
+
+
+.social-media.facebook {
+    background-color: #3b5998;
+}
+
+.social-media.twitter {
+    background-color: #00aced;  
+}
+
+.social-media.github {
+    background-color: #333;
+}
+
+.social-media.linkedin {
+    background-color: #007bb6;
+}
+
+
+
+
+.fa-laptop-code::before {
+    content: "\f5fc";
+    color: white;
+    font-size: 17px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.fa-twitter::before {
+    content: "\f099";
+    color: white;
+    font-size: 17px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.fa-linkedin-in::before {
+    content: "\f0e1";
+    color: white;
+    font-size: 17px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.fa-facebook-f::before {
+    content: "\f39e";
+    color: white;
+    font-size: 17px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.fa-github::before {
+    content: "\f09b";
+    color: white;
+    font-size: 17px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+
+li {
+    list-style: none;
+    padding-top: 20px;
+    padding-left: 70px;
+}
+
+a {
+    color: white;
+    
+    
+    
+}
+
+

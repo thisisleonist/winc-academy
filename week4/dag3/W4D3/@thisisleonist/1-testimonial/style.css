@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    font-size: 1rem;
+    line-height: 1.333rem;
+    font-family: --apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    word-wrap: break-word;
+    user-select: none;
+    margin: 0;
+}
+
+body {
+    background-color: #c3cfe2;
+    margin: 4rem;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+}
+
+.testimonial {
+    color: hsla(0, 0%, 0%, 0.5);
+    background-color: hsl(0, 100%, 100%);
+    box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.3);
+    border-radius: 1rem;
+    width: 280px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-block;
+    text-align: left;
+}
+
+.testimonial p:first-child {
+    padding: 1rem 1.25rem 3.5rem 1.25rem;
+    font-size: inherit;
+    line-height: 1.5rem;
+}
+
+.testimonial p:last-child {
+    text-align: center;
+    background-color: #686de0;
+    padding-bottom: 1.25rem;
+    border-radius: 0 0 1rem 1rem;
+    color: hsl(0, 100%, 100%);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.testimonial img {
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    border-radius: 100%;
+    border: 4px solid hsl(0, 100%, 100%);
+    position: relative;
+}
+
+.testimonial p:last-child span {
+    display: block;
+    text-transform: uppercase;
+    font-size: inherit;
+    letter-spacing: 1px;
+}
+
+.testimonial p:last-child a {
+    color: hsla(0, 100%, 100%, .5);
+    text-transform: capitalize;
+    text-decoration: none;
+    border-bottom: 1px solid hsla(0, 100%, 100%, 0);
+    font-size: .8rem;
+    transition: color, border-bottom 250ms ease;
+}
+
+.testimonial p:last-child a:hover {
+    color: hsla(0, 100%, 100%, .7);
+    border-bottom: 1px solid hsla(0, 100%, 100%, .7);
+}

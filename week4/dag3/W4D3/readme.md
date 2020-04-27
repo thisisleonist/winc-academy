@@ -1,3 +1,9 @@
-Project moved to repo:
+# Project: Mastering Next Level CSS
 
-https://github.com/thisisleonist/winc_week4_nextlevelcss
+Repo for Next Level CSS project in week 4 at Winc Academy
+
+A collaboration between Nabil ([@nabiloo](https://github.com/nabiloo/)) and Leon ([@thisisleonist](https://github.com/thisisleonist/))!
+
+## Preview
+
+![Next Level CSS](preview_v3.jpg)
