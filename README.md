@@ -1,3 +1,3 @@
-# Frontend developer - Winc Academy
+# Frontend Developer - Winc Academy
 
-Assignments and projects for the Frontend webdeveloper training with Winc Academy
+Progress, assignments and projects for Frontend Developer course at Winc Academy
