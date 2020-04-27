@@ -1,11 +1,4 @@
 .DS_Store
 week3/dag4/W3D4-1/private-api-key.js
-week4/dag4/W4D4-1/node_modules
-week4/dag4/W4D4-2/node_modules
-week4/dag4/W4D4-3/node_modules
-week6/dag1/W6D1-1/HangmanReact-1-typo/node_modules
-week6/dag1/W6D1-1/HangmanReact-2-typo/node_modules
-week6/dag1/W6D1-1/HangmanReact-3-typo/node_modules
-week6/dag1/W6D1-1/HangmanReact-4-bug1/node_modules
-week6/dag1/W6D1-1/HangmanReact-5-logic/node_modules
-week6/dag1/W6D1-1/HangmanReact-6-letter/node_modules
+*node_modules*
+
